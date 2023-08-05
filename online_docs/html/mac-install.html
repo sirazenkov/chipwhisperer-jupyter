@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Mac OS X Installation &#8212; ChipWhisperer 5.7.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="_static/backup.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Virtual Machine Installs" href="virtual-box-inst.html" />
+    <link rel="prev" title="Linux Installation" href="linux-install.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+    <h1 class="logo logo-name">ChipWhisperer</h1>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Side-Channel analysis tool-chain.</p>
+
+
+
+
+
+
+
+
+
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Mac OS X Installation</a><ul>
+<li><a class="reference internal" href="#brew">Brew</a></li>
+<li><a class="reference internal" href="#packages">Packages</a></li>
+<li><a class="reference internal" href="#python">Python</a></li>
+<li><a class="reference internal" href="#compilers">Compilers</a></li>
+<li><a class="reference internal" href="#mac-m1-notes">Mac M1 Notes</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="mac-os-x-installation">
+<span id="install-mac"></span><h1>Mac OS X Installation<a class="headerlink" href="#mac-os-x-installation" title="Permalink to this heading">¶</a></h1>
+<section id="brew">
+<h2>Brew<a class="headerlink" href="#brew" title="Permalink to this heading">¶</a></h2>
+<p>Open your bash terminal and paste this into the prompt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/bin/ruby<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>This snippet is taken directly from <a class="reference external" href="https://brew.sh/">brew’s website</a>. The script will guide
+you through the installation.</p>
+</section>
+<section id="packages">
+<h2>Packages<a class="headerlink" href="#packages" title="Permalink to this heading">¶</a></h2>
+<p><strong>libusb</strong> is required by the <strong>chipwhisperer</strong> software to communicate with
+the board. You can install it using <strong>brew</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>libusb
+</pre></div>
+</div>
+</section>
+<section id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h2>
+<p>The best way to install Python on Mac is in a Python virtualenv. The steps
+for this are found at <a class="reference external" href="https://opensource.com/article/19/5/python-3-default-mac">https://opensource.com/article/19/5/python-3-default-mac</a>.
+A quick summary is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>pyenv
+pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.9.5
+pyenv<span class="w"> </span>global<span class="w"> </span><span class="m">3</span>.9.5
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;if command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; then\n  eval &quot;$(pyenv init -)&quot;\nfi&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
+</pre></div>
+</div>
+<p>Then launch a new terminal and run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>and make sure it reports that you’re using Python 3.9.5.</p>
+</section>
+<section id="compilers">
+<h2>Compilers<a class="headerlink" href="#compilers" title="Permalink to this heading">¶</a></h2>
+<p>The compilers are also available on Mac OSx. The ARM compiler can be found
+on the <a class="reference external" href="https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads">ARM website</a>. If needed, the AVR compiler can be installed as well
+using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>tap<span class="w"> </span>osx-cross/avr
+brew<span class="w"> </span>install<span class="w"> </span>avr-gcc
+</pre></div>
+</div>
+<p>This brew install does not work for some older versions of Mac OS X. You will
+have to find a different way to install the compilers.</p>
+</section>
+<section id="mac-m1-notes">
+<h2>Mac M1 Notes<a class="headerlink" href="#mac-m1-notes" title="Permalink to this heading">¶</a></h2>
+<p>ChipWhisperer is compatable with Mac M1; however, due to the M1’s different architecture,
+as well as its x86 emulation, you need to manually install libusb1 and ensure that the
+architecture for libusb1 matches the architecture for Python.</p>
+<p>See <a class="reference external" href="https://github.com/newaetech/chipwhisperer/issues/381">https://github.com/newaetech/chipwhisperer/issues/381</a> for more information.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2023, NewAE Technology Inc..
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/mac-install.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/newaetech/chipwhisperer" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

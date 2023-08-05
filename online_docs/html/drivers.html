@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Windows Drivers &#8212; ChipWhisperer 5.7.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="_static/backup.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linux Installation" href="linux-install.html" />
+    <link rel="prev" title="Windows Installation" href="windows-install.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+    <h1 class="logo logo-name">ChipWhisperer</h1>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Side-Channel analysis tool-chain.</p>
+
+
+
+
+
+
+
+
+
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Windows Drivers</a><ul>
+<li><a class="reference internal" href="#checking-for-correct-drivers">Checking for Correct Drivers</a></li>
+<li><a class="reference internal" href="#how-to-change-drivers">How to Change Drivers</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="windows-drivers">
+<span id="id1"></span><h1>Windows Drivers<a class="headerlink" href="#windows-drivers" title="Permalink to this heading">¶</a></h1>
+<p>Over the past year, we have been making a number of changes to the USB interface under
+the hood as we adapt the ChipWhisperer to a “plug and play” model for Windows. ChipWhisperer
+devices with firmware newer than 0.23/1.23 (released November 2020) will automatically
+configure themselves as a WinUSB device, instead of using the old and unmaintained libusb0
+driver. This update makes ChipWhisperer “plug and play” on all Windows, Linux, and Mac -
+if you have the ChipWhisperer software, you can use your device!</p>
+<p>Since this firmware update, we have continued to support both USB drivers; however, as of
+the major ChipWhisperer release 5.6, we will no longer support libusb0. We are
+switching to a new Python USB library to take advantage of additional USB features, and this
+new library does not support libusb0.</p>
+<section id="checking-for-correct-drivers">
+<h2>Checking for Correct Drivers<a class="headerlink" href="#checking-for-correct-drivers" title="Permalink to this heading">¶</a></h2>
+<p>To check if the correct drivers are installed, plug in your ChipWhisperer and open Device Manager. Next,
+navigate to <code class="code docutils literal notranslate"><span class="pre">Universal</span> <span class="pre">Serial</span> <span class="pre">Bus</span> <span class="pre">devices</span></code> and find your ChipWhisperer device.
+Double click on the device, go to <code class="code docutils literal notranslate"><span class="pre">Details</span></code>, and change the <code class="code docutils literal notranslate"><span class="pre">Property</span></code>
+to <code class="code docutils literal notranslate"><span class="pre">Device</span> <span class="pre">instance</span> <span class="pre">path</span></code>. If the path includes <code class="code docutils literal notranslate"><span class="pre">MI_00</span></code>, then
+you have the correct drivers installed on your device. If you are unable
+to find your device, the device isn’t under <code class="code docutils literal notranslate"><span class="pre">Universal</span> <span class="pre">Serial</span> <span class="pre">Bus</span> <span class="pre">devices</span></code>,
+or if path doesn’t include <code class="code docutils literal notranslate"><span class="pre">MI_00</span></code>, then you are on old firmware and/or
+have incorrect drivers installed.</p>
+<p>A ChipWhisperer with a correctly installed driver is shown below:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/Device Manager Correct.png"><img alt="_images/Device Manager Correct.png" src="_images/Device Manager Correct.png" style="width: 400px;" /></a>
+</div></blockquote>
+</section>
+<section id="how-to-change-drivers">
+<span id="windows-change-drivers"></span><h2>How to Change Drivers<a class="headerlink" href="#how-to-change-drivers" title="Permalink to this heading">¶</a></h2>
+<p>If you’re running on the old drivers, the recommended way to change drivers
+is to upgrade to the latest firmware and let Windows assign the correct driver.</p>
+<p>If you’re unable to connect due to having old firmware and old drivers, you
+can assign the correct driver by:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Installing ChipWhisperer (if you haven’t done so already)</p></li>
+<li><p>Download and run Zadig.exe, available at <a class="reference external" href="https://zadig.akeo.ie/">https://zadig.akeo.ie/</a></p></li>
+<li><p>In Zadig, select your ChipWhisperer device (e.g. “ChipWhisperer-Lite”). If it doesn’t appear, go to Options and select “List all devices”</p></li>
+<li><p>Make sure WinUSB is selected as the driver</p></li>
+<li><p>Click “Install Driver”</p></li>
+</ol>
+</div></blockquote>
+<p>From there, you should be able to upgrade your firmware. Instructions are at <a class="reference internal" href="firmware.html#upgrade-firmware-python"><span class="std std-ref">Upgrading Firmware</span></a>.</p>
+<p>Correct Zadig settings are shown below:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/zadig.png"><img alt="_images/zadig.png" src="_images/zadig.png" style="width: 400px;" /></a>
+</div></blockquote>
+<p>Once that’s done:</p>
+<blockquote>
+<div><ol class="arabic simple" start="6">
+<li><p>Open Device Manager</p></li>
+<li><p>Go to device manager and find your device (e.g. “ChipWhisperer Lite”) under “Universal Serial Bus devices”</p></li>
+<li><p>Right click your Device and select “Uninstall Device”</p></li>
+<li><p>Select “Delete the driver software for this device” and click “Uninstall”</p></li>
+<li><p>Unplug and replug your ChipWhisperer</p></li>
+</ol>
+</div></blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is important that the steps to uninstall the Zadig driver are followed,
+as Zadig installation may interfere with some ChipWhisperer features.</p>
+</div>
+<p>A ChipWhisperer with an incorrectly installed driver is shown below (note that “libusb-win32” has been
+replaced by “Microchip Tools” due to another driver):</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/Device Manager.png"><img alt="_images/Device Manager.png" src="_images/Device Manager.png" style="width: 400px;" /></a>
+</div></blockquote>
+<p>Ensure you have “Delete the driver software for this device” selected when uninstalling the driver:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/Uninstall Device.png"><img alt="_images/Uninstall Device.png" src="_images/Uninstall Device.png" style="width: 400px;" /></a>
+</div></blockquote>
+<p>A ChipWhisperer with a correctly installed driver is shown below:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/Device Manager Correct.png"><img alt="_images/Device Manager Correct.png" src="_images/Device Manager Correct.png" style="width: 400px;" /></a>
+</div></blockquote>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2023, NewAE Technology Inc..
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/drivers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/newaetech/chipwhisperer" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Change Log &#8212; ChipWhisperer 5.7.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="_static/backup.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Deprecated API" href="api.html" />
+    <link rel="prev" title="Contributing" href="contributing.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+    <h1 class="logo logo-name">ChipWhisperer</h1>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Side-Channel analysis tool-chain.</p>
+
+
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="change-log">
+<span id="id1"></span><h1>Change Log<a class="headerlink" href="#change-log" title="Permalink to this heading">¶</a></h1>
+<dl class="simple">
+<dt>V5.7.1</dt><dd><dl class="simple">
+<dt>New Features:</dt><dd><ul class="simple">
+<li><p>Improve Husky UART triggering</p></li>
+<li><p>Make use of CW Error LED for serial overruns</p></li>
+<li><p>Add firmware erase that doesn’t require programming FPGA (<cite>quick_firmware_erase()</cite>)</p></li>
+<li><p>Add CW312 FPGA Target support</p></li>
+<li><p>Improve <cite>GlitchController.calc()</cite> to exclude params and sort by result</p></li>
+<li><p>Add <cite>scope.vglitch_reset()</cite></p></li>
+<li><p>Add ability to get/set XADC VCC alarm limits</p></li>
+<li><p>Add firmware erase ability to firmware installer</p></li>
+</ul>
+</dd>
+<dt>Fixes:</dt><dd><ul class="simple">
+<li><p>Minimize Husky target clock drop when changing ADC clock</p></li>
+<li><p>Improve STM32F programming speed</p></li>
+<li><p>Increase reset time for SAM4S, making programming more reliable</p></li>
+<li><p>Fix issue with long Husky stream captures on Linux</p></li>
+<li><p>Fix issues with CW305 bitstream build</p></li>
+<li><p>Remove <cite>caddr_t</cite> from SAM4S/STM32 build (fixes compile on some GCC versions)</p></li>
+<li><p>Bump OpenOCD version in installer</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>V5.7.0</dt><dd><dl class="simple">
+<dt>New Features:</dt><dd><ul class="simple">
+<li><p>Automatically setup husky_userio pins for MPSSE when <cite>enable_MPSSE()</cite> called</p></li>
+<li><p>Add SAM4S bootloader support - allows programming SAM4S target boards</p></li>
+<li><p>Add SAM4S target HAL</p></li>
+<li><p>Add <cite>openocd/run_openocd.sh</cite> for easier JTAG/SWD programming and debugging</p></li>
+<li><p>Add <cite>openocd/fe310.cfg</cite> to allow fe310 programming via MPSSE</p></li>
+<li><p>Common build system for capture boards/cw305/cw310</p></li>
+<li><p>Add context manager support to ChipWhisperer (thanks &#64;wallento !)</p></li>
+<li><p>Add <cite>cglitch_setup()</cite>, <cite>vglitch_setup()</cite>, and <cite>glitch_disable()</cite> to scopes for easy glitch setup/disable.</p></li>
+<li><p>Add <cite>cw.list_devices()</cite> to list attached NewAE devices</p></li>
+<li><p>Add <cite>scope.reset_clock_phase()</cite> for CWNano</p></li>
+<li><p>New and improved <cite>GlitchController</cite> with glitch map support</p></li>
+<li><p>Full Husky support for SCA101 and Fault101</p></li>
+<li><p>Improve glitch performance on replacement CWNano glitch transistor</p></li>
+</ul>
+</dd>
+<dt>Fixes:</dt><dd><ul class="simple">
+<li><p>Fix MPSSE timeout on CWPro</p></li>
+<li><p>Change logger to use temp files (Thanks &#64;S-Vaes !)</p></li>
+<li><p>Fix <cite>dict_repr</cite> for nano ADC</p></li>
+<li><p>Fix f3 linkerscript stack location</p></li>
+<li><p>Correctly set openocd srst signal pin</p></li>
+<li><p>Identify srst signal as push pull</p></li>
+<li><p>Add glitch/clock AUX out for Pro</p></li>
+<li><p>Fix baud rate for simpleserial version not being applied to non simpleserial firmware</p></li>
+<li><p>Fix FE310 baud rate not being set to 38400bps &#64; 7.37MHz</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>V5.6.1</dt><dd><dl class="simple">
+<dt>New Features:</dt><dd><ul class="simple">
+<li><p>ChipWhisperer-Husky and CW310 Bergen Board support</p></li>
+<li><p>Add <cite>scope.fw_version_str</cite></p></li>
+<li><p>Switch from pyusb to libusb1 - deprecates libusb0.dll on Windows</p></li>
+<li><p>Add <cite>as_int</cite> parameter to <cite>scope.get_last_trace()</cite> to return traces as integers</p></li>
+<li><p>Add driver detection for Windows</p></li>
+<li><p>Add force and bitstream option to <cite>cw.scope()</cite></p></li>
+<li><p>Improve 50-naeusb.rules</p></li>
+<li><p>Add SimpleSerial 2.1 and deprecate SimpleSerial 2.0</p></li>
+<li><p>Add ChipWhisperer version check.</p></li>
+<li><p>Add SAM3U firmware feature list and checks</p></li>
+<li><p>Add common interface for USB scopes/targets</p></li>
+<li><p>Add ability to connect to scope via hardware location</p></li>
+<li><p>Add debugger support (via OpenOCD) to Lite, Pro, Nano, and Husky</p></li>
+<li><p>Add GUI based Windows firmware installer</p></li>
+<li><p>Add linting, automatic hardware testing, and firmware building actions</p></li>
+<li><p>Add FW_CHANGES.txt</p></li>
+</ul>
+</dd>
+<dt>Fixes:</dt><dd><ul class="simple">
+<li><p>Fix SS_VER_1_X and XMega simplserial-rsa</p></li>
+<li><p>Fix SSV2 unstuff data for &gt;30 zeros</p></li>
+<li><p>Fix AVR lock bits read</p></li>
+<li><p>Fix Nano connect status</p></li>
+<li><p>Fix Nano scope.adc.clk_src not being changeable.</p></li>
+<li><p>Explicit memory ordering in bootloader-glitch</p></li>
+<li><p>Cast analyzer CPA calculations to long double to avoid precision issues in large projects</p></li>
+<li><p>Fix Pro screen getting stuck when capturing</p></li>
+<li><p>Checkout master branch for ChipWhisperer-Jupyter in installer</p></li>
+<li><p>Fix timeout length on simpleserial reads</p></li>
+<li><p>More versionadded/versionchanged for docs</p></li>
+<li><p>Fix FPGA target.dis()</p></li>
+<li><p>Fix DCM lock on glitch - caused issues with enable_only glitching (most noticable at high frequencies)</p></li>
+<li><p>Fix TraceWhisperer verilog files not being installed in user mode</p></li>
+<li><p>Fix issues with unintended double glitch on CWLite and Pro</p></li>
+<li><p>Fix simple_PGE when key is numpy array</p></li>
+<li><p>Don’t try calculating pge if known_key not set</p></li>
+<li><p>No longer overwrite builtins.bytearray</p></li>
+<li><p>Fix memory numbers in STM32F3 linkerscript</p></li>
+<li><p>Revert to old NewAE rules</p></li>
+</ul>
+</dd>
+<dt>Firmware:</dt><dd><ul class="simple">
+<li><p>CWLite: 0.62.0</p></li>
+<li><p>CWNano: 0.62.0</p></li>
+<li><p>CWPro : 1.62.0</p></li>
+<li><p>CW305 : 0.52.0</p></li>
+<li><p>CWHusky: 1.2.0</p></li>
+<li><p>CWBergen: 1.2.0</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>V5.5</dt><dd><dl class="simple">
+<dt>New Features:</dt><dd><ul class="simple">
+<li><p>Re-add SAKURA-G support</p></li>
+<li><p><strong>TraceWhisperer cleanup + convenience functions</strong></p></li>
+<li><p>ChipWhisperer firmware <cite>auto_program()</cite></p></li>
+<li><p><strong>Add segmented capture to ChipWhisperer, allowing for super fast capture</strong></p></li>
+<li><p><strong>Add simpleserial-ecc</strong></p></li>
+<li><p><strong>New demo: uECC attack</strong></p></li>
+<li><p><strong>New ChipWhisperer Firmware: CDC serial ports for UART communication (i.e. communication with `”COMX”`/`”/dev/ttyACMX”`</strong></p></li>
+<li><p><strong>New target class: SimpleSerial2_CDC with automatic serial port detection (no need to figure out `”COMX”`/`”/dev/ttyACMX”`)</strong></p></li>
+<li><p>Add simpleserial documentation (thanks &#64;coastalwhite !)</p></li>
+<li><p>Add new simpleserial commands to get available commands</p></li>
+<li><p>Add maskedAES for more targets (thanks &#64;jmichelp !)</p></li>
+<li><p>Add better method for loading new CW bitstream</p></li>
+<li><p>Add avr-gcc and arm-gcc to installer (optional)</p></li>
+</ul>
+</dd>
+<dt>Fixes:</dt><dd><ul class="simple">
+<li><p>Add CWPro aux_out</p></li>
+<li><p>Update ESP32 build for newer build system version</p></li>
+<li><p>Reset Xmega if programming fails (should prevent programming from immediately failing next call)</p></li>
+<li><p>Setup script improvements</p></li>
+<li><p>Fix outdated 99-rules.newae</p></li>
+<li><p>Fix voltage range on CW305 VCCINT</p></li>
+<li><p>Fix STM32F4 HW floating point (thanks &#64;mcsmonk !)</p></li>
+<li><p>Fix Nano crash when &gt;128 bytes read from USART</p></li>
+<li><p>VM now supports uploading firmware to chipwhisperer</p></li>
+<li><p>Fix pipe error caused by interrupting USB communications</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>V5.4</dt><dd><dl class="simple">
+<dt>New Features:</dt><dd><ul class="simple">
+<li><p>AES MixColumns Attack and Variable Vector KTP (requires scared/estraces)</p></li>
+<li><p>Update FW for USB devices - auto configure as WinUSB</p></li>
+<li><p>Update FW to increase serial buffer</p></li>
+<li><p>Support both libusb0 and libusb1</p></li>
+<li><p>Add automated plotting functions for analyzer plots</p></li>
+<li><p>Add TraceWhisperer</p></li>
+<li><p>Improve CW305 AES implementation</p></li>
+<li><p>Add cw.plot()</p></li>
+<li><p>Add scope.sn</p></li>
+<li><p>Major CWNano speedup</p></li>
+<li><p>Analyzer autoplots</p></li>
+<li><dl class="simple">
+<dt>Add SimpleSerialV2 (not used by default) binary serial protocol</dt><dd><ul>
+<li><p>Use 230400bps for SSV2 baud</p></li>
+<li><p>Major capture speedup when using SSV2</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>New experiment/target class: CW305 HW ECC</p></li>
+<li><p>Add CW305 register name autodetect</p></li>
+<li><p>Add glitch arm timing of “no_glitch” (moderate speedup for SSV2)</p></li>
+</ul>
+</dd>
+<dt>Fixes:</dt><dd><ul class="simple">
+<li><p>target.baud not being reset correctly after programming STM32</p></li>
+<li><p>Turn of STM32 HW floating point</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>V5.3.1</dt><dd><dl class="simple">
+<dt>New Features:</dt><dd><ul class="simple">
+<li><p>New CWPro firmware
+- Add in_waiting_tx for Pro</p></li>
+<li><p>Public target.in_waiting_tx()</p></li>
+<li><p>Add SAMFWLoader CWPro support</p></li>
+<li><p>Add CWPro USB binary</p></li>
+</ul>
+</dd>
+<dt>Fixes:</dt><dd><ul class="simple">
+<li><p>Fix TIO state read on CWPro</p></li>
+<li><p>Fix tx buffer overrun on CWPro</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>V5.3.0</dt><dd><dl class="simple">
+<dt>New Features:</dt><dd><ul class="simple">
+<li><p>New CW305 USB firmware</p></li>
+<li><p>New CWLite/CWNano USB firmware</p></li>
+<li><p>Major tutorial overhaul
+- Tutorials now built for <a class="reference external" href="https://learn.chipwhisperer.io">https://learn.chipwhisperer.io</a>
+- Includes both remastered and all new tutorials
+- Add prerecorded traces to power analysis labs</p></li>
+<li><p>New tutorials (SCA101):
+- Lab 3_1 - Recovering Data from a Single Bit
+- Lab 6_4 - Jittery Triggering on UART</p></li>
+<li><p>New tutorials (Fault101):
+- Voltage glitch versions of clock glitch tutorials</p></li>
+<li><p>New tutorials (SCA201):
+- Dynamic Time Warp resync
+- Hardware AES lab</p></li>
+<li><p>New tutorials (Fault201):
+- Introduction to AES Fault Attacks
+- AES Loop Skip Fault attack
+- 1.5 Round AES Attack
+- DFA Attack Against Final MixColumns</p></li>
+<li><p>New hardware documentation at <a class="reference external" href="https://rtfm.newae.com">https://rtfm.newae.com</a></p></li>
+<li><p>Add documented way to read state of TIO1-4 on Lite/Pro</p></li>
+<li><p>Add glitch controller for improved glitch recording</p></li>
+<li><p>Add API reprogramming supports for Nano and CW305</p></li>
+<li><p>Add T-Table enc/dec leakage models</p></li>
+<li><p>Add __array__() function to IndividualIterable (allows conversion to numpy array)</p></li>
+<li><p>Add tqdm to preprocessing</p></li>
+<li><p>Add batch run for CW305 for fast capture</p></li>
+<li><p>Add SPI Programming for CW305</p></li>
+<li><p>Add default FPGA programming for CW305</p></li>
+</ul>
+</dd>
+<dt>Fixes:</dt><dd><ul class="simple">
+<li><p>Make Nano serial and capture more reliable</p></li>
+<li><p>Improve Nano reliablity in VM</p></li>
+<li><p>Build fixes for STM32F3 and STM32L5</p></li>
+<li><p>Greatly improved reliablity OpenADC long offset captures</p></li>
+<li><p>Make target.SimpleSerial more robust</p></li>
+<li><p>Fix tx buffer overrun</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>V5.2.0</dt><dd><dl class="simple">
+<dt>New Features:</dt><dd><ul class="simple">
+<li><p>CW-Lite/Pro: Increase maximum glitch repeat to 8192</p></li>
+<li><p>CW-Lite/Pro: Add nRESET as trigger input</p></li>
+<li><p>Targets: Add RT1062 HAL (NXP Cross-over MCU)</p></li>
+<li><p>Targets: Add EFR32MG21 HAL (SiLabs with ‘secure element’)</p></li>
+<li><p>Targets: Add FE310 HAL (RISC-V)</p></li>
+<li><p>Targets: Add STM32L5 HAL (NXP M33)</p></li>
+<li><p>Add option to allow more specific hardware AES engine triggers</p></li>
+<li><p>Add SAD section to SPA_1</p></li>
+<li><p>Small fixes to SPA_2</p></li>
+<li><p>SimpleSerial additions:
+- simpleserial_read_witherrors
+- Define return for simpleserial_wait_ack
+- simpleserial_last_sent
+- simpleserial_last_read</p></li>
+</ul>
+</dd>
+<dt>Fixes:</dt><dd><ul class="simple">
+<li><p>CW-Lite/Pro: Fix glitch logic which was not correctly gating output - start and end edge were slightly off</p></li>
+<li><p>Fix HW float being used on STM32F3 instead of software float
+- This also fixes a crash related to the wrong C library being used on older (pre q2-2018) gcc versions</p></li>
+<li><p>Allow STM32F3 to use different input clock speeds (was previously fixed to 7.37MHz)</p></li>
+<li><p>Fix STM32F3 programming timeout</p></li>
+<li><p>Expand tests</p></li>
+<li><p>Add ack option to capture_trace()</p></li>
+<li><p>Fix project not saving correctly when multiple segments used</p></li>
+<li><p>Code cleanup</p></li>
+<li><p>Various other fixes</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>V5.1.3</dt><dd><ul class="simple">
+<li><p>Windows installer (released)</p></li>
+<li><p>Improvements to Jupyter notebooks - use real-time plotting during capture, various small fixes</p></li>
+<li><p>New LPC1114 Jupyter tutorial</p></li>
+<li><p>Add PSOC62 HAL, fix NRF52840 HAL and SAM4L HAL</p></li>
+<li><p>Add CW-Nano firmware source + schematics</p></li>
+</ul>
+</dd>
+<dt>V5.1.2:</dt><dd><ul class="simple">
+<li><p>Windows installer</p></li>
+<li><p>Fix PGE calculation and known key highlighting for attacks which don’t
+target the base key.</p></li>
+</ul>
+</dd>
+<dt>V5.1.1:</dt><dd><ul class="simple">
+<li><p>Fix STM32F baud setting</p></li>
+<li><p>Update Jupyter requirements to have everything needed to run all tutorials</p></li>
+<li><p>Fix chipwhisperer autodetect when nothing attached</p></li>
+</ul>
+</dd>
+<dt>V5.1.0:</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>Tutorial Updates:</dt><dd><ul>
+<li><p>New tutorial: Fault_5-RSA_Fault_Attack</p></li>
+<li><p>New tutorial: Fault_2-Introduction_to_Vcc_Glitch_Attacks</p></li>
+<li><p>New tutorial: PA_DPA_3-AES_DPA_Attack</p></li>
+<li><p>New tutorial: PA_HW_Pro_1 added</p></li>
+<li><p>New tutorial: !!Introduction_to_Jupyter!!</p></li>
+<li><p>Fault_4 updated for new API</p></li>
+<li><p>Tutorials now list supported hardware at the top of the tutorial</p></li>
+<li><p>Improved support for non-CWLITEARM targets</p></li>
+<li><p>Tutorial tests now output .rst files for Read the Docs</p></li>
+<li><p>Change Setup.ipynb to Setup_Generic.ipynb</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Scope updates:</dt><dd><ul>
+<li><p>Added default_setup() method</p></li>
+<li><p>cw.scope() can now autodetect scope type</p></li>
+<li><p>CWPro only features updated to work with API</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Project updates:</dt><dd><ul>
+<li><p>Major project API updates</p></li>
+<li><p>New project format</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>CW1200 Pro only features added to API</p></li>
+<li><p>Completed tutorials now available on Read the Docs</p></li>
+<li><p>Added tutorials submodule for completed tutorial .rst files</p></li>
+<li><p>Key text pair interface updated</p></li>
+<li><p>Added cw.capture_trace()</p></li>
+<li><p>Moved Jupyter to Submodule in top of project</p></li>
+<li><p>Separated requirements.txt into Jupyter (in Jupyter submodule) and non Jupyter files</p></li>
+<li><p>Changed to snake_case instead of camelCase</p></li>
+<li><p>Added Sphinx documentation</p></li>
+<li><p>API now documented with Google Style Guide</p></li>
+<li><p>Many tutorial changes to reflect API changes</p></li>
+<li><p>Changed tutorials to use C preprocessor to change firmware rather than via awk</p></li>
+<li><p>C firmware CRYPTO_TARGET no longer defaults to AVRCRYPTOLIB</p></li>
+<li><p>CW308_AURIX clock and regulator fixes</p></li>
+<li><p>Fixed generate_firmware_files.py for python3</p></li>
+<li><p>Removed some unused files</p></li>
+<li><p>Expose baud for STM32 programmer</p></li>
+<li><p>Fixed XMEGA and STM32 programming issues</p></li>
+<li><p>Fixed “Trigger not found in ADC data” issue</p></li>
+<li><p>Improved CW305 support</p></li>
+</ul>
+</dd>
+<dt>V5.0.1:</dt><dd><ul class="simple">
+<li><p>Fixed project loading</p></li>
+<li><p>Initial CW305 Support</p></li>
+<li><p>Various small fixes</p></li>
+</ul>
+</dd>
+<dt>V5.0.0:</dt><dd><ul class="simple">
+<li><p>Replaced GUI with Jupyter</p></li>
+<li><p>Moved to Python 3 (Python 2.7 no longer supported)</p></li>
+<li><p>Improved API for Projects</p></li>
+<li><p>Added GUILess Analyzer support</p></li>
+<li><p>Added Jupyter Notebooks for most major tutorials</p></li>
+<li><p>Added Notebooks for new tutorials</p></li>
+<li><p>Small cleanups to API</p></li>
+</ul>
+</dd>
+<dt>V4.0.2:</dt><dd><ul class="simple">
+<li><p>Improve SAD logic</p></li>
+<li><p>Add RSA firmware build for ARM.</p></li>
+<li><p>Add new setup scripts (CEC1702, ESP32)</p></li>
+<li><p>Various small fixes</p></li>
+</ul>
+</dd>
+<dt>V4.0.1:</dt><dd><ul class="simple">
+<li><p>State for GUI Programmers is not held in between actions, allowing the programmers to be left open during captures/glitching without causing problems</p></li>
+<li><p>The GUI programmers now use the 4.0 api to set pins for programming, saving pin states before an action to restore them after.</p></li>
+<li><p>Most firmware files are now compatible with the ARM compiler</p></li>
+<li><p>Example scripts in chipwhisperer/software/scripting-examples have been updated for 4.0, providing an example of using the ChipWhisperer tool without the GUI for clock glitching, trace capture during encryption, and trace analysis.</p></li>
+</ul>
+</dd>
+<dt>V4.0.0:</dt><dd><ul class="simple">
+<li><p>Rewritten script interface, now almost all work is done via preconfigured scripts</p></li>
+<li><p>New API allows direct access to configuration (useful with new script architecture)</p></li>
+<li><p>New firmware examples (ESP32, Spartan 6 cheap FPGA board)</p></li>
+</ul>
+</dd>
+<dt>V3.5.3:</dt><dd><ul class="simple">
+<li><p>FW: Add RSA firmware example (see <a class="reference external" href="https://wiki.newae.com/Tutorial_B11_Breaking_RSA">https://wiki.newae.com/Tutorial_B11_Breaking_RSA</a>)</p></li>
+<li><p>FW: Add MBED TLS crypto library for ARM targets (see <a class="reference external" href="https://wiki.newae.com/Tutorial_A8_32bit_AES">https://wiki.newae.com/Tutorial_A8_32bit_AES</a>)</p></li>
+<li><p>SW: Add utility to copy traces to new project</p></li>
+<li><p>Capture: Add ability to measure “Trigger High” length in number of samples</p></li>
+<li><p>FW: Fix trigger GPIO pin in STM32F4 HAL</p></li>
+<li><p>FW: Fix AVR “sizeafter” target in makefile</p></li>
+<li><p>SW: Update testing scripts to use os.path and auto-program for XMEGA programming</p></li>
+<li><p>Capture: Fix timer bug in CW1173 Reset aux module</p></li>
+</ul>
+</dd>
+<dt>V3.5.0:</dt><dd><ul class="simple">
+<li><p>SW: Allow each module to set a default error message severity</p></li>
+<li><p>Capture: Support connecting multiple CW-Lite/Pro scopes</p></li>
+<li><p>Capture: Add SPI flash programmer target</p></li>
+<li><p>Capture: Add STM32F programmer</p></li>
+<li><p>Capture: Add setup script for 87C51 target</p></li>
+<li><p>FW: Fix bug in SAM4L HAL that disabled crypto countermeasures</p></li>
+<li><p>FW: Improve Makefile output on Windows</p></li>
+<li><p>SW: Return script results when running Capture/Analyzer scripts via API</p></li>
+<li><p>Analyzer: Fix off-by-one error in C-accelerated CPA attack</p></li>
+<li><p>Capture: Properly randomize fixed/random plaintexts in CRI T-Test mode</p></li>
+<li><p>Capture: Fix float/int conversion bug in glitch explorer</p></li>
+</ul>
+</dd>
+<dt>V3.4.0:</dt><dd><ul class="simple">
+<li><p>Addition of trace-cache in preprocessing module, useful with slow preprocessing module.</p></li>
+<li><p>Dynamic Time Warp (DTW) based trace resync preprocessing, based on the “Elastic Alignment” paper by Jasper</p></li>
+<li><p>SimpleSerial firmware V1.1 now supports ACK in messaage structure, useful in slow encryptions to avoid timeout</p></li>
+<li><p>STM32F firmware targets (including STM32F0, F1, F2, F3, F4)</p></li>
+<li><p>New trace plotting command allows plotting arbitrary traces (not just range), along with specific colours.</p></li>
+</ul>
+</dd>
+<dt>V3.3.0:</dt><dd><ul class="simple">
+<li><p>CW1200 support added (bitstream built-in, various fixes for CW1200)</p></li>
+<li><p>New firmware build system supports targets beyond AVR/XMEGA (now can build for STM32F, etc)</p></li>
+<li><p>Add downsample mode for CWLite, CW1200 (make better use of sample buffer by downsampling ADC to get very slow sampler rates)</p></li>
+<li><p>New simple AES crypto library for firmware targets</p></li>
+<li><p>Huge speed-up to waveform data processing on capture</p></li>
+<li><p>Support automatic downsampling of waveform display (requires recent version of pyqtgraph)</p></li>
+</ul>
+</dd>
+<dt>V3.2.0:</dt><dd><ul class="simple">
+<li><p>Updated HW model system, breaks some old APIs but makes it easier to add custom leakage models</p></li>
+<li><p>Fixed bug where unplugging CW-Lite with terminal open caused flood of close messages</p></li>
+<li><p>Fixes to CW305 interface</p></li>
+<li><p>AVR Programmer adds ATMegaRF2564RFR2 device support</p></li>
+</ul>
+</dd>
+<dt>V3.1.11:</dt><dd><ul class="simple">
+<li><p>Added support to DES (recovers 48 of the 56 bits key)</p></li>
+<li><p>Refactored attack classes</p></li>
+</ul>
+</dd>
+<dt>V3.1.10:</dt><dd><ul class="simple">
+<li><p>Added basic support to multiple channels (doesn’t save yet).</p></li>
+<li><p>Trace Output Plot widget with new parameter: X Axis with time values.</p></li>
+<li><p>New Streaming mode capture option.</p></li>
+</ul>
+</dd>
+<dt>V3.1.9:</dt><dd><ul class="simple">
+<li><p>Improved serial terminal.</p></li>
+<li><p>Added stop capture button.</p></li>
+<li><p>Fixed a lot of memory leaks.</p></li>
+<li><p>New trace manager (supports deletion of multiple items).</p></li>
+<li><p>Pip support.</p></li>
+<li><p>Support to projects/plugins in user’s home.</p></li>
+<li><p>Test scripts.</p></li>
+<li><p>Improved code documentation.</p></li>
+<li><p>Code cleanups.</p></li>
+<li><p>New Glitch Explorer widget.</p></li>
+<li><p>Bandstop digital filter option (credits to Marc).</p></li>
+<li><p>Removed parentParam argument from many classes (some older scripts may need to delete it to come back to live) :-/</p></li>
+<li><p>Added buttons to load and save settings.</p></li>
+<li><p>Project settings saved with the traces during capture.</p></li>
+<li><p>Logging.</p></li>
+</ul>
+</dd>
+<dt>V3.1.8:</dt><dd><ul class="simple">
+<li><p>Read/save buttons.</p></li>
+<li><p>Trace recorder.</p></li>
+<li><p>Graph widget: hairlines, grid, move, help, select trace, position.</p></li>
+<li><p>Check for updates.</p></li>
+<li><p>New Parameter class. API runs standalone now (especially the capture tool).</p></li>
+<li><p>Customizable key/trace colors.</p></li>
+<li><p>Results table with color gradient.</p></li>
+<li><p>Faster graphs plotting, especially in fast mode.</p></li>
+<li><p>Fixed a bug where highlighted traces for other keys would not show up.</p></li>
+<li><p>Trace Explorer moved to the main window as a settings dock.</p></li>
+<li><p>Bug fixes.</p></li>
+</ul>
+</dd>
+<dt>V3.0:</dt><dd><ul class="simple">
+<li><p>Consolidate project (move traces to the project dir).</p></li>
+<li><p>Improved trace manager.</p></li>
+<li><p>Fixed GUI bugs with Mac OS X.</p></li>
+<li><p>New plugin architecture (should be much easier to add new modules).</p></li>
+<li><p>Bug fixes.</p></li>
+<li><p>Large code refactoring.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2023, NewAE Technology Inc..
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/changes.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/newaetech/chipwhisperer" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

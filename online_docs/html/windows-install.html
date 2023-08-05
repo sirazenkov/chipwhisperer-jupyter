@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Windows Installation &#8212; ChipWhisperer 5.7.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="_static/backup.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Windows Drivers" href="drivers.html" />
+    <link rel="prev" title="Starting" href="starting.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+    <h1 class="logo logo-name">ChipWhisperer</h1>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Side-Channel analysis tool-chain.</p>
+
+
+
+
+
+
+
+
+
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Windows Installation</a><ul>
+<li><a class="reference internal" href="#windows-bundled-installer">Windows Bundled Installer</a><ul>
+<li><a class="reference internal" href="#running-chipwhisperer">Running ChipWhisperer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#windows-manual-install">Windows Manual Install</a><ul>
+<li><a class="reference internal" href="#git-bash">Git Bash</a></li>
+<li><a class="reference internal" href="#python">Python</a></li>
+<li><a class="reference internal" href="#compilers-and-make">Compilers and Make</a></li>
+<li><a class="reference internal" href="#verifying-prerequisite-installation">Verifying Prerequisite Installation</a></li>
+<li><a class="reference internal" href="#installing-chipwhisperer">Installing ChipWhisperer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="windows-installation">
+<span id="install-windows-exe"></span><h1>Windows Installation<a class="headerlink" href="#windows-installation" title="Permalink to this heading">¶</a></h1>
+<section id="windows-bundled-installer">
+<h2>Windows Bundled Installer<a class="headerlink" href="#windows-bundled-installer" title="Permalink to this heading">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Windows Subsystem for Linux (WSL) seems to interfere with
+<code class="code docutils literal notranslate"><span class="pre">%%bash</span></code> blocks. If you get an error about not being
+able to find make, or something about needing to install
+a Linux distribution, try disabling WSL or
+changing <code class="code docutils literal notranslate"><span class="pre">%%bash</span></code> to <code class="code docutils literal notranslate"><span class="pre">%%sh</span></code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is recommended that you enable long paths on Windows
+to prevent any files from not being copied during installation.
+Follow <a class="reference external" href="https://www.microfocus.com/documentation/filr/filr-4/filr-desktop/t47bx2ogpfz7.html">https://www.microfocus.com/documentation/filr/filr-4/filr-desktop/t47bx2ogpfz7.html</a>,
+then reboot to enable long paths</p>
+</div>
+<p>If you want to run a native Windows installation of ChipWhisperer, your best
+bet is to run the Windows installer, which takes care of getting the
+prerequisites for you. The steps for using the installer are as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Navigate to the <a class="reference external" href="https://github.com/newaetech/chipwhisperer/releases">ChipWhisperer release page</a> on Github.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/win-installer-1.png"><img alt="_images/win-installer-1.png" src="_images/win-installer-1.png" style="width: 800px;" /></a>
+<ul>
+<li><p>Find the latest ChipWhisperer Windows install executable (currently
+<code class="code docutils literal notranslate"><span class="pre">Chipwhisperer.v5.6.1.exe</span></code>)</p></li>
+<li><p>Run the executable and choose the path you want to install ChipWhisperer at.
+You must have read/write permissions for the location you install to, so
+avoid installing in a location like <code class="code docutils literal notranslate"><span class="pre">C:Program</span> <span class="pre">Files</span></code> or the like. The
+default install location (the user’s home directory) will work for most users.</p></li>
+<li><p>Choose whether or not you want to create a desktop shortcut for running
+ChipWhisperer and whether or not you want to install make and compilers (we recommend that you
+do).</p>
+<a class="reference internal image-reference" href="_images/win-installer-2.png"><img alt="_images/win-installer-2.png" src="_images/win-installer-2.png" style="width: 600px;" /></a>
+</li>
+<li><p>Wait for the installation to finish. Note that a second window will open before the install finishes to
+complete additional steps.</p>
+<a class="reference internal image-reference" href="_images/win-installer-3.png"><img alt="_images/win-installer-3.png" src="_images/win-installer-3.png" style="width: 800px;" /></a>
+</li>
+</ul>
+</div></blockquote>
+<p>On ChipWhisperers with updated firmware, drivers will be automatically installed. If you run
+into issues when trying to connect, you may want to read our <a class="reference internal" href="drivers.html#windows-drivers"><span class="std std-ref">page on drivers</span></a>.</p>
+<section id="running-chipwhisperer">
+<h3>Running ChipWhisperer<a class="headerlink" href="#running-chipwhisperer" title="Permalink to this heading">¶</a></h3>
+<p>Once you’ve completed the above, you should have a fully functioning, self-contained installation
+with everything you need. Since everything is self-contained, or at least as so far is possible on Windows,
+you will only have access to ChipWhisperer, the compilers, git bash, when you run our provided applications.</p>
+<p>The easiest way to launch ChipWhisperer and get started with the tutorials is by running the ChipWhisperer
+application, available via the Start Menu, the folder where you installed ChipWhisperer, or, if you selected
+this, via a desktop shortcut. After running, you should see a terminal pop up, followed by a new window open
+in your browser:</p>
+<img alt="_images/Jupyter ChipWhisperer.png" src="_images/Jupyter ChipWhisperer.png" />
+<p>Once you see this open, we recommend clicking on <code class="code docutils literal notranslate"><span class="pre">jupyter</span></code>, then running through <code class="code docutils literal notranslate"><span class="pre">0</span> <span class="pre">-</span> <span class="pre">Introduction</span> <span class="pre">to</span> <span class="pre">Jupyter</span> <span class="pre">Notebooks.ipynb</span></code>
+to verify that everything installed correctly. If you run into any issues, please ask on our <a class="reference external" href="https://forum.newae.com/">forums</a> for help.</p>
+<p>This install bundles Git Bash, which we use to ensure <code class="code docutils literal notranslate"><span class="pre">%%bash</span></code> blocks in Jupyter function correctly. If you want
+to run this Git Bash with access to ChipWhisperer, the compilers, etc. you can run the ChipWhisperer Bash application,
+available from the same spots as the normal ChipWhisperer installation.</p>
+</section>
+</section>
+<section id="windows-manual-install">
+<span id="manual-windows-install"></span><h2>Windows Manual Install<a class="headerlink" href="#windows-manual-install" title="Permalink to this heading">¶</a></h2>
+<p>If you run into issues with the bundled installer, or prefer to grab everything yourself, you can also install ChipWhisperer
+manually on Windows. Before grabbing ChipWhisperer itself, you’ll need to grab some prerequisites:</p>
+<section id="git-bash">
+<h3>Git Bash<a class="headerlink" href="#git-bash" title="Permalink to this heading">¶</a></h3>
+<p>To start off, you’ll want to grab <a class="reference external" href="https://git-scm.com/downloads">git-bash</a>, which we’ll use as our general purpose terminal. You can use all default options
+during the installation, except for <code class="code docutils literal notranslate"><span class="pre">Enable</span> <span class="pre">experimental</span> <span class="pre">support</span> <span class="pre">for</span> <span class="pre">pseudo</span> <span class="pre">consoles</span></code>, which we recommend enabling,
+as it allows the Python interpreter to function correctly on the command line.</p>
+</section>
+<section id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h3>
+<p>We recommend grabbing Python via <a class="reference external" href="https://sourceforge.net/projects/winpython/files/">WinPython</a>. <strong>Make sure you grab the Cython version, not the PyPy version. Typically, the version with the most downloads/week is the best to grab.</strong>.
+Any Python version above or equal to 3.7 should work here; however, we’ve only verified installation on Python 3.7, 3.8, 3.9, and 3.10. The default installation instructions will suffice here. Once
+WinPython is installed, you’ll need to add it to your system path. Don’t add it to your user path, as
+Git Bash won’t be able to pick it up from there.</p>
+</section>
+<section id="compilers-and-make">
+<h3>Compilers and Make<a class="headerlink" href="#compilers-and-make" title="Permalink to this heading">¶</a></h3>
+<p>We recommend that you grab both <a class="reference external" href="https://blog.zakkemble.net/avr-gcc-builds/">avr-gcc</a> and <a class="reference external" href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">arm-none-eabi-gcc</a>. Once you’ve got them installed
+add the <code class="code docutils literal notranslate"><span class="pre">bin</span></code> folders from both to your system path.</p>
+</section>
+<section id="verifying-prerequisite-installation">
+<h3>Verifying Prerequisite Installation<a class="headerlink" href="#verifying-prerequisite-installation" title="Permalink to this heading">¶</a></h3>
+<p>Once you’ve got all the prerequisites installed open Git Bash and run the following to verify
+that everything is installed properly and on your system Path:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import sys; print(sys.executable)&quot;</span><span class="w"> </span><span class="c1"># verify Python installation</span>
+make<span class="w"> </span>--version<span class="w"> </span><span class="c1"># verify Make from avrgcc</span>
+avr-gcc<span class="w"> </span>--version<span class="w"> </span><span class="c1"># verify avrgcc</span>
+arm-none-eabi-gcc<span class="w"> </span>--version<span class="w"> </span><span class="c1"># verify arm-none-eabi-gcc</span>
+</pre></div>
+</div>
+</section>
+<section id="installing-chipwhisperer">
+<h3>Installing ChipWhisperer<a class="headerlink" href="#installing-chipwhisperer" title="Permalink to this heading">¶</a></h3>
+<p>With all the prerequisites installed and verified, you’re ready to install ChipWhisperer
+proper.</p>
+<p>You can clone and install ChipWhisperer by running the following commands in Git Bash:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/newaetech/chipwhisperer
+<span class="nb">cd</span><span class="w"> </span>chipwhisperer
+git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>jupyter
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>jupyter/requirements.txt
+</pre></div>
+</div>
+<p>If everything there completes successfully, then congratulations, you’ve successfully installed ChipWhisperer!
+All that’s left is to launch Jupyter and run the verification notebooks. Run the following in Git Bash:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/chipwhisperer
+python<span class="w"> </span>-m<span class="w"> </span>jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
+<p>After running, you should see a terminal pop up, followed by a new window open
+in your browser:</p>
+<img alt="_images/Jupyter ChipWhisperer.png" src="_images/Jupyter ChipWhisperer.png" />
+<p>Once you see this open, we recommend clicking on <code class="code docutils literal notranslate"><span class="pre">jupyter</span></code>, then running through <code class="code docutils literal notranslate"><span class="pre">0</span> <span class="pre">-</span> <span class="pre">Introduction</span> <span class="pre">to</span> <span class="pre">Jupyter</span> <span class="pre">Notebooks.ipynb</span></code>
+to verify that everything installed correctly. If you run into any issues, please ask on our <a class="reference external" href="https://forum.newae.com/">forums</a> for help.</p>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2023, NewAE Technology Inc..
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/windows-install.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/newaetech/chipwhisperer" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

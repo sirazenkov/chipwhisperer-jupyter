@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Overview &#8212; ChipWhisperer 5.7.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" />
+    <link rel="stylesheet" type="text/css" href="_static/backup.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script src="_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Starting" href="starting.html" />
+    <link rel="prev" title="ChipWhisperer" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="index.html">
+    <img class="logo" src="_static/logo.png" alt="Logo"/>
+    
+    <h1 class="logo logo-name">ChipWhisperer</h1>
+    
+  </a>
+</p>
+
+
+
+<p class="blurb">Side-Channel analysis tool-chain.</p>
+
+
+
+
+
+
+
+
+
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Overview</a><ul>
+<li><a class="reference internal" href="#what-is-chipwhisperer">What is ChipWhisperer?</a></li>
+<li><a class="reference internal" href="#components">Components</a><ul>
+<li><a class="reference internal" href="#hardware">Hardware</a></li>
+<li><a class="reference internal" href="#firmware">Firmware</a></li>
+<li><a class="reference internal" href="#software">Software</a></li>
+<li><a class="reference internal" href="#tutorials">Tutorials</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#important-links">Important Links</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="overview">
+<span id="getting-started"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h1>
+<p>New to ChipWhisperer? No problem!</p>
+<p>This page will give a brief overview of what ChipWhisperer is, where you can
+find documentation about different parts of the ChipWhisperer toolchain,
+as well as some of the major changes that have recently happened to ChipWhisperer.</p>
+<p>Consider this page the answer to “Help, I’m confused… there are too many websites
+that have resources related to ChipWhisperer”.</p>
+<section id="what-is-chipwhisperer">
+<span id="getting-started-what-is-chipwhisperer"></span><h2>What is ChipWhisperer?<a class="headerlink" href="#what-is-chipwhisperer" title="Permalink to this heading">¶</a></h2>
+<p>ChipWhisperer is a complete open source toolchain for learning about
+side channel attacks on embedded devices and validating
+the side channel resistance of these devices. In particular,
+ChipWhisperer focuses on power analysis, which uses information
+leaked by a device’s power consumption to mount an attack, as well
+as voltage and clock glitching attacks, which briefly disrupt
+a device’s power or clock to cause unintended behaviour (such
+as skipping a password check).</p>
+</section>
+<section id="components">
+<span id="getting-started-links"></span><h2>Components<a class="headerlink" href="#components" title="Permalink to this heading">¶</a></h2>
+<p>In total, ChipWhisperer has four layers of open source components:</p>
+<section id="hardware">
+<span id="getting-started-hardware"></span><h3>Hardware<a class="headerlink" href="#hardware" title="Permalink to this heading">¶</a></h3>
+<p>ChipWhisperer has scope boards, which are used to mount side channel attacks,
+as well as target boards, which function as a device under test (DuT).
+Hardware documentation can be found at <a class="reference external" href="https://rtfm.newae.com">https://rtfm.newae.com</a></p>
+<p>Hardware is for the most part open source and design files/schematics
+can be found either on the <a class="reference external" href="https://github.com/newaetech/chipwhisperer">ChipWhisperer Github repository</a>,
+or on a <a class="reference external" href="https://github.com/newaetech/chipwhisperer-target-cw308t">UFO target board repository</a>.</p>
+<a class="reference internal image-reference" href="_images/cwlite_basic.png"><img alt="_images/cwlite_basic.png" src="_images/cwlite_basic.png" style="width: 600px;" /></a>
+</section>
+<section id="firmware">
+<span id="getting-started-firmware"></span><h3>Firmware<a class="headerlink" href="#firmware" title="Permalink to this heading">¶</a></h3>
+<p>ChipWhisperer also includes open source firmware for both scopes
+and targets.</p>
+<p>Scope firmware is written in Verilog (for
+the FPGA) and C (USB microcontroller) and can be found in the
+<code class="code docutils literal notranslate"><span class="pre">hardware/capture</span></code> sections of the <a class="reference external" href="https://github.com/newaetech/chipwhisperer">ChipWhisperer
+Github repository</a>.</p>
+<p>Target firmware is mostly written in C (though we do have
+a few FPGA targets with code in Verilog) and can be found
+in the <code class="code docutils literal notranslate"><span class="pre">hardware/victims/firmware</span></code> directory of
+the <a class="reference external" href="https://github.com/newaetech/chipwhisperer">ChipWhisperer Github repository</a>.</p>
+</section>
+<section id="software">
+<span id="getting-started-software"></span><h3>Software<a class="headerlink" href="#software" title="Permalink to this heading">¶</a></h3>
+<p>ChipWhisperer has an open source Python library for controlling the
+capture hardware and communicating with the target. <a class="reference external" href="https://chipwhisperer.readthedocs.io">ChipWhisperer ReadTheDocs</a>
+(this website) has the <a class="reference internal" href="index.html#api"><span class="std std-ref">API documentation</span></a> and <a class="reference internal" href="index.html#install"><span class="std std-ref">installation instructions</span></a>
+for this part of the ChipWhisperer toolchain.</p>
+<p>The source code for the API is located on the <a class="reference external" href="https://github.com/newaetech/chipwhisperer">ChipWhisperer Github repository</a>.</p>
+</section>
+<section id="tutorials">
+<span id="getting-started-tutorials"></span><h3>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this heading">¶</a></h3>
+<p>Finally, ChipWhisperer also includes Jupyter Notebook tutorials and labs that both
+teach about side channel attacks that can be performed with ChipWhisperer,
+as well as showcase how to use the Python API. These tutorials/labs
+are available in the <a class="reference external" href="https://github.com/newaetech/chipwhisperer-jupyter">ChipWhisperer Jupyter Github repository</a>.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="_images/jupyter_example.png"><img alt="_images/jupyter_example.png" src="_images/jupyter_example.png" style="width: 800px;" /></a>
+</div></blockquote>
+</section>
+</section>
+<section id="important-links">
+<span id="getting-started-important-links"></span><h2>Important Links<a class="headerlink" href="#important-links" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://github.com/newaetech/chipwhisperer/issues">Issue Tracker</a>:</p>
+<blockquote>
+<div><p>The issue tracker for the GitHub repository. If you have any issues with
+the ChipWhisperer software that you suspect may be bugs, let us know
+there. Also, if you have any suggestions for future improvements this
+is also place to suggest them. All ideas/suggestions, and issues are
+welcome. Enhancements will be considered, and discussed there before
+the decision is made.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://forum.newae.com/">NewAE Forum</a>:</p>
+<blockquote>
+<div><p>The forum for all things related to side-channel analysis. If you are
+stuck and need help, you may find some much needed help here. Whether
+about ChipWhisperer hardware or with other projects related to
+side-channel analysis, all discussion is welcome. One of us at NewAE
+Technology usually monitors the forum and there is a good chance we
+can help you. There are also other active members that are also on the
+forum which may have run into the same problems you have. Before posting
+please take a look at other forum posts. You may find your answer
+quicker than you think.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://learn.chipwhisperer.io">Online Courses</a>:</p>
+<blockquote>
+<div><p>NewAE offers paid online courses that go in depth into
+things not covered by the free tutorials, such as
+different power measurement techniques, as well as how
+to setup non ChipWhisperer hardware for side channel
+attacks.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://newae.com/">NewAE Website</a>:</p>
+<blockquote>
+<div><p>The is the website for NewAE Technolgy Inc. the maintainers of the
+ChipWhisperer software and the creators the of the ChipWhisperer
+platform. Here you can find out about the company, and find links
+to things like the store, and upcoming training sessions.
+Here you can you also find some other the other products NewAE
+Technology Inc. sells like the electromagnetic fault injection platform,
+the ChipSHOUTER.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://store.newae.com/">NewAE Store</a>:</p>
+<blockquote>
+<div><p>Here you can get yours hands on one of those hardware boards used by all
+of the tutorials. NewAE Technology sells hardware to take away the
+frustration of setting up the hardware for side-channel attacks. These
+boards are available at the <a class="reference external" href="https://store.newae.com/">NewAE Store</a>. Boards are also available
+on <a class="reference external" href="https://www.mouser.com/Search/Refine?Keyword=newae">Mouser</a>.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2023, NewAE Technology Inc..
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/getting-started.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/newaetech/chipwhisperer" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
